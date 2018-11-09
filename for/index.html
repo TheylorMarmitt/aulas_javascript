@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Palmeiras não tem mundial</title>
+</head>
+<body>
+
+    <div>
+        <input type="text" id="quantidade" 
+            placeholder="Digite a quantidade">
+
+        <button type="button" onclick="geradorDeTexto()">Ok</button>
+    </div>
+    
+    <hr>
+
+    <div id="conteudo">
+
+    </div>
+
+    <script type="text/javascript">
+
+        function geradorDeTexto(){
+          const inputQuantidade = document.getElementById("quantidade");
+          const quantidade = parseInt(inputQuantidade.value);
+          
+          if(isNaN(quantidade)){
+              alert("Digite um número válido");
+          } else {
+
+            const conteudo = document.getElementById("conteudo");
+            conteudo.innerHTML = "";
+            
+            for(var i=0; i<quantidade; i++){
+              conteudo.innerHTML = 
+                conteudo.innerHTML + "Palmeiras não tem mundial.<br>";
+            }
+          }
+
+        }
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

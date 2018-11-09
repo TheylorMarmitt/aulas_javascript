@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div id="conteudo">
+
+    </div>
+    
+    <script type="text/javascript">
+        var funcaoQueEscreve = function(texto){
+            document.
+              getElementById("conteudo").
+              innerHTML = texto || "Escrevi no doc";
+        }
+
+        var funcaoQueLimpa = function(){
+            document.
+              getElementById("conteudo").
+              innerHTML = "";
+        }
+
+        var funcaoQueExecuta = 
+            function(funcaoPorParametro){
+                if(typeof funcaoPorParametro == 'function'){
+                    funcaoPorParametro("outra msg");
+                } else {
+                    console.log("passe uma function por " +
+                            "parametro");
+                }
+            }
+
+
+        funcaoQueExecuta(funcaoQueEscreve);
+        alert("ok para continuar");
+        funcaoQueExecuta(funcaoQueLimpa);
+    </script>
+</body>
+</html>

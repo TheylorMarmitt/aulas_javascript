@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carros</title>
+</head>
+<body>
+
+    <h1>Ajudamos escolher seu carro</h1>
+
+    <div>
+        <input id="rico" type="radio" name="status" value="rico" onclick="executa(this)"><label for="rico">Rico</label>
+        <input id="pobre" type="radio" name="status" value="pobre" onclick="executa(this)"><label for="pobre">Pobre</label>
+        <input id="nemai" type="radio" name="status" value="nemai" onclick="executa(this)"><label for="nemai">Nem aí</label>
+    </div>
+    
+    <div>
+        <p class="rico" style="display:none;"><b>Uno de firma:</b> Faz bastante média, além de dar pouca manutenção</p>
+        <p class="pobre" style="display:none;"><b>Gol quadrado:</b> Bom pra se incomodar e gastar álcool</p>
+        <p class="nemai" style="display:none;"><b>Ford Edge:</b> 
+            Dispensa comentários, mas é bom pra quem gosta de gastar gasolina</p>
+        <p class="rico" style="display:none;"><b>Corcel 2:</b> Macio, mas faz funil no tanque.</p>
+        <p class="pobre" style="display:none;"><b>Fiat Mobi:</b> Nem é carro.</p>
+        <p class="nemai" style="display:none;"><b>Fiat Marea:</b> Uma explosão de venda, literalmente.</p>
+    </div>
+
+    <script type="text/javascript">
+        function executa(elementoClicado){
+            mostraClass('.' + elementoClicado.value);
+        }
+        
+        function mostraClass(classe){
+            // busca todos os P
+            const todosP = document.querySelectorAll('p');
+            
+            // passo em todos os P escondendo eles
+            for (let i=0; i< todosP.length; i++){
+                todosP[i].style.display = 'none';
+            }
+
+            // encontro os p que quero mostrar
+            const lista = document.querySelectorAll(classe);
+            // percorro os p e mostro eles
+            for (let i=0; i< lista.length; i++){
+                lista[i].style.display = 'block';
+            }
+
+
+        }
+    
+    
+    </script>
+</body>
+</html>

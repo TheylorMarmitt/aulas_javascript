@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+
+	<!-- teu comentario aqui -->
+
+</head>
+<body>
+
+	<h1>Calculadora JS</h1>
+
+	<div><input type="text" id="v1" placeholder="Valor 1"></div>
+
+	<div><input type="text" id="v2" placeholder="Valor 2"></div>
+
+	<div><button onclick="somar()">Somar</button></div>
+
+	<script type="text/javascript">
+
+		function somar(){
+			const valor1 = document.getElementById("v1").value;
+
+			const valor2 = document.getElementById("v2").value;
+
+			const resultado = parseInt(valor1) + parseInt(valor2);
+
+			if(isNaN(resultado)){
+				alert("Digite números válidos");
+			} else{
+				alert("A soma é "+ resultado);
+
+				document.getElementById("v1").value = '';
+				document.getElementById("v2").value = '';
+			}
+		}
+		
+	</script>
+
+</body>
+</html>
