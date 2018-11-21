@@ -1,4 +1,7 @@
 
+// executa assim que a página terminar de carregar
+(function() {
+    
 var listaPessoas = [];
 
 function salvar(){
@@ -153,10 +156,38 @@ function buscaDoLocalStorage(){
     listaPessoas = JSON.parse(listaStorage) || [];
 }
 
-// executa assim que a página terminar de carregar
-(function() {
     // o que se deseja executar
     buscaDoLocalStorage();
     renderiza();
+
+    document.getElementById("formulario")
+        .addEventListener("submit", function(evt){
+            salvar();
+            // corta a linha de execucao
+            evt.stopPropagation(); 
+
+            // previne o comportamento padrão
+            evt.preventDefault();
+        });
+    
+    // busco todos os inputs
+    const inputs = document.querySelectorAll('input, select');
+    
+    for(element of inputs){
+        element.oninvalid = function(){
+            const msg = this.getAttribute('data-custom-message');
+
+            if(msg){
+                // remove mensagens de erro antigas
+                this.setCustomValidity("");
+
+                // executa novamente a validação
+                if (!this.validity.valid) {
+                    // se inválido, coloca mensagem de erro customizada
+                    this.setCustomValidity(msg);
+                }
+            }
+        }
+    }
 
  })();
