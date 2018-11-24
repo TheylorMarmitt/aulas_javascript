@@ -1,0 +1,37 @@
+{
+   "cliente":"Matheus",
+   "cpf":"987987987987",
+   "totalProdutos":2256.3,
+   "totalServicos":90,
+   "totalGeral":2346.3,
+   "produtos":[
+      {
+         "nome":"Semente de soja",
+         "quantidade":30,
+         "valorUnitario":65.21,
+         "valorTotal":1956.3
+      },
+      {
+         "nome":"Inoculante",
+         "quantidade":30,
+         "valorUnitario":5,
+         "valorTotal":150
+      },
+      {
+         "nome":"Grafite para semeadeira",
+         "quantidade":5,
+         "valorUnitario":30,
+         "valorTotal":150
+      }
+   ],
+   "servicos":[
+      {
+         "descricao":"Aplicação de inoculante",
+         "valor":50
+      },
+      {
+         "descricao":"Aplicação de grafite",
+         "valor":40
+      }
+   ]
+}
