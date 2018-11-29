@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="10">
+
+    <title>Lista de orcamentos</title>
+</head>
+
+<body>
+    <table border="solid 1">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Produtos</th>
+                <th>Servicos</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for( o of orcamentos ) { %>
+            <tr>
+                <td>
+                    <%= o.cliente %> <i>
+                        <%= o.cpf %></i></td>
+                <td>
+                    <ul>
+                        <% for( pr of o.produtos ) { %>
+                        <li>
+                            <%= pr.nome %>
+                        </li>
+                        <% } %>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <% for( sr of o.servicos ) { %>
+                        <li>
+                            <%= sr.descricao %>
+                        </li>
+                        <% } %>
+                    </ul>
+                </td>
+                <td>
+                    <%= o.totalGeral %>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>

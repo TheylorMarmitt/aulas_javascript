@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Temperatura ajax</h1>
+
+    <fieldset>
+        <legend>Temperatura em Xanxerê</legend>
+
+        <div>
+            <span id="temperatura">XX</span>°C
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Hora atual Xanxerê</legend>
+
+        <div>
+            <span id="data-hora"></span>
+        </div>
+    </fieldset>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        setInterval(function () {
+            const data = new Date();
+            $('#data-hora').text(data.toLocaleDateString()
+                + ' ' + data.toLocaleTimeString());
+        }, 1000);
+
+        setTimeout(function () {
+            $('body').css('background-color', 'black');
+        }, 5000);
+
+        $.ajax({
+            'type': "GET",
+            'url': "http://api.openweathermap.org/data/2.5/weather?q=Xanxere&appid=a48c8a1d6b2c7143ee0b188d7848ec18",
+            'success': function (retorno) {
+                const dados = retorno;
+                const temperatura = dados.main.temp - 273.15;
+
+                $('#temperatura').text(temperatura.toFixed(2));
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
