@@ -22,8 +22,9 @@
     <fieldset>
         <legend>Bem vindo à lista de exercícios finais</legend>
         <div>
-            Esta lista de exercícios será autocorrigida. Não modifique o HTML pois ele não será tomado como base pelo
-            corretor.
+            <div>Esta lista de exercícios será autocorrigida. Modifique o HTML somente para inserir seu arquivo JS.</div>
+
+            <b>Não modifique o restante do HTML pois ele não será tomado como base pelo corretor.</b>
         </div>
     </fieldset>
 
@@ -172,8 +173,10 @@
     </fieldset>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/gh/vitorzachi/aulas_javascript/exercicios/corretor.js"></script>
 
     <script type="text/javascript">
+        var corretor = corretor || {};
         (function () {
             var sum = 0;
             for (f of document.getElementsByTagName('fieldset')) {
@@ -184,8 +187,9 @@
             }
             document.getElementById('nota-max').innerText = sum;
 
-
-
+            if (corretor) {
+                corretor.corrigir('#sua-nota');
+            }
         })();
     </script>
 </body>
